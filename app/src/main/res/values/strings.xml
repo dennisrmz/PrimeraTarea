@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">PrimeraTarea</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descripcion_imagen_logo">ImagenLogo</string>
+    <string name="texto_bienvenida">Nos encanta que quieras aplicar a nuestras becas, pero antes de todo necesitamos conocerte más.</string>
+    <string name="text_nombre">Nombre Completo:</string>
+    <string name="text_correo">Correo Electronico:</string>
+    <string name="text_numero_telefonico">Número Telefonico</string>
+    <string name="text_enteraste">Como te enteraste de bitlab?</string>
+    <string name="text_button">Enviar</string>
+    <string name="text_success">Tus datos han sido enviados con exito</string>
+    <string name="image_succes">image-succes</string>
+
+    <string-array name="como_te_enteraste">
+        <item>Por redes sociales</item>
+        <item>Un amigo me sugirio</item>
+        <item>Otro</item>
+    </string-array>
+</resources>
