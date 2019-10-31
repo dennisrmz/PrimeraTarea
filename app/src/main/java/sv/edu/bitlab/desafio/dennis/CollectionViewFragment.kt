@@ -1,4 +1,4 @@
-package sv.edu.bitlab.primeratarea
+package sv.edu.bitlab.desafio.dennis
 
 import android.content.Context
 import android.net.Uri
@@ -7,51 +7,46 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.constraintlayout.widget.ConstraintLayout
+import sv.edu.bitlab.desafio.R
 
-class Formulario : Fragment(){
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 
+/**
+ * A simple [Fragment] subclass.
+ * Activities that contain this fragment must implement the
+ * [CollectionViewFragment.OnFragmentInteractionListener] interface
+ * to handle interaction events.
+ * Use the [CollectionViewFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class CollectionViewFragment : Fragment() {
     // TODO: Rename and change types of parameters
-
     private var listener: OnFragmentInteractionListener? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
-
-
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View? {
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_formulario, container, false)
+        return inflater.inflate(R.layout.collection_view_fragment, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val confirmarBoton = view.findViewById<Button>(R.id.button)
-
-        confirmarBoton.setOnClickListener {
-            var loading = view.findViewById<ConstraintLayout>(R.id.frespuesta)
-            loading.visibility = View.VISIBLE
-        }
-
+    // TODO: Rename method, update argument and hook method into UI event
+    fun onButtonPressed(uri: Uri) {
+        listener?.onFragmentInteraction(uri)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnFragmentInteractionListener) {
             listener = context
-
         } else {
             throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
         }
@@ -85,14 +80,13 @@ class Formulario : Fragment(){
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Formulario.
+         * @return A new instance of fragment CollectionViewFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            Formulario().apply {
+            CollectionViewFragment().apply {
                 arguments = Bundle().apply {
-
                 }
             }
     }

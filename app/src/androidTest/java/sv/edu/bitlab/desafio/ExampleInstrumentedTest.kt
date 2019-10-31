@@ -1,4 +1,4 @@
-package sv.edu.bitlab.primeratarea
+package sv.edu.bitlab.desafio
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

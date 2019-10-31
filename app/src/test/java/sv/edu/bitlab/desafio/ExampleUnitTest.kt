@@ -1,4 +1,4 @@
-package sv.edu.bitlab.primeratarea
+package sv.edu.bitlab.desafio
 
 import org.junit.Test
 

@@ -1,51 +1,66 @@
-package sv.edu.bitlab.primeratarea
+package sv.edu.bitlab.desafio.dennis
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import sv.edu.bitlab.desafio.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+class Formulario : Fragment(){
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [Respuesta.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [Respuesta.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Respuesta : Fragment() {
     // TODO: Rename and change types of parameters
+
     private var listener: OnFragmentInteractionListener? = null
+    private lateinit var button_enviar: Button
+    private lateinit var nombre: EditText
+    private lateinit var correo: EditText
+    private lateinit var telefono: EditText
+    private lateinit var enteraste: Spinner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_respuesta, container, false)
+        val view = inflater.inflate(R.layout.fragment_formulario, container, false)
+        nombre=view.findViewById(R.id.input_name)
+        correo=view.findViewById(R.id.input_email)
+        telefono=view.findViewById(R.id.input_numero_telefonico)
+        enteraste=view.findViewById(R.id.input_enteraste)
+
+        button_enviar = view.findViewById(R.id.button)
+        button_enviar.setOnClickListener{
+            listener?.checarCampos(nombre, correo, telefono, enteraste)
+        }
+        return view
+
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnFragmentInteractionListener) {
             listener = context
+
         } else {
             throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
         }
@@ -69,7 +84,7 @@ class Respuesta : Fragment() {
      */
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
+        fun checarCampos(nombre: EditText, correo: EditText, telefono: EditText, enteraste : Spinner)
     }
 
     companion object {
@@ -79,13 +94,14 @@ class Respuesta : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment Respuesta.
+         * @return A new instance of fragment Formulario.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            Respuesta().apply {
+            Formulario().apply {
                 arguments = Bundle().apply {
+
                 }
             }
     }

@@ -3,19 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".dennis.MainActivity">
 
     <FrameLayout
         android:name="sv.edu.bitlab.primeratarea.Formulario"
-        android:id="@+id/fragmentformulario"
+        android:id="@+id/containerFragment"
         android:layout_height="match_parent"
         android:layout_width="match_parent" />
 
-    <FrameLayout
-        android:name="sv.edu.bitlab.primeratarea.Respuesta"
-        android:id="@+id/fragmentRespuesta"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
