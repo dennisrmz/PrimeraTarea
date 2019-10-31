@@ -1,172 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dennis.MainActivity">
-
-<androidx.constraintlayout.widget.ConstraintLayout
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".dennis.Formulario"
-
-    android:background="@color/background_color"
-    >
+    android:id="@+id/frespuesta1">
 
     <!-- TODO: Update blank fragment layout -->
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="254dp"
+        android:layout_height="57dp"
+        android:text="@string/text_success"
+        android:textAlignment="center"
+        android:textColor="@color/background_color"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.118" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/img_logo_bitlab"
+        android:layout_marginTop="312dp"
+        android:src="@drawable/ic_success_image"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/descripcion_imagen_logo" />
+        android:contentDescription="@string/image_succes" />
 
-    <TextView
-        android:id="@+id/textBienvenida"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/unispace_l"
-        android:text="@string/texto_bienvenida"
-        android:textColor="@color/color_font_welcome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".dennis.MainActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-247dp">
 
-    <TextView
-        android:id="@+id/textInputName"
+        <androidx.constraintlayout.widget.ConstraintLayout
 
-        style="@style/TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color"
 
-        android:layout_marginStart="16dp"
+            tools:context=".dennis.Formulario">
 
-        android:layout_marginTop="28dp"
-        android:text="@string/text_nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBienvenida" />
-
-    <EditText
-        android:id="@+id/input_name"
-
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-
-        android:autofillHints="Escribe tu nombre completo"
-        android:background="@drawable/input_radius"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputName"
-        tools:ignore="LabelFor,TextFields" />
-
-    <TextView
-        android:id="@+id/textInputEmail"
-
-        style="@style/TextInput"
-
-        android:layout_marginTop="28dp"
-        android:text="@string/text_correo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_name" />
-
-    <EditText
-        android:id="@+id/input_email"
-
-        style="@style/EditInput"
-        android:layout_marginTop="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:autofillHints="Escribe tu Correo ELectronico"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEmail"
-        tools:ignore="LabelFor,TextFields" />
-
-    <TextView
-        android:id="@+id/textInputTelefono"
-
-        style="@style/TextInput"
-
-        android:layout_marginTop="28dp"
-        android:text="@string/text_numero_telefonico"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_email" />
-
-    <EditText
-        android:id="@+id/input_numero_telefonico"
-
-        style="@style/EditInput"
-        android:layout_marginTop="0dp"
-
-        android:autofillHints="Escribe tu Numero Telefonico"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputTelefono"
-        tools:ignore="LabelFor,TextFields" />
-
-    <TextView
-        android:id="@+id/textInputEnteraste"
-
-        style="@style/TextInput"
-
-        android:layout_marginTop="28dp"
-        android:text="@string/text_enteraste"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_numero_telefonico" />
-
-    <Spinner
-        android:id="@+id/input_enteraste"
-        style="@style/EditInput"
-        android:entries="@array/como_te_enteraste"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEnteraste" />
+            <!-- TODO: Update blank fragment layout -->
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="250dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/button_radius"
-        android:text="@string/text_button"
-        android:textColor="@color/background_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_enteraste" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:contentDescription="@string/descripcion_imagen_logo"
+                android:src="@drawable/img_logo_bitlab"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textBienvenida"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/unispace_l"
+                android:text="@string/texto_bienvenida"
+                android:textColor="@color/color_font_welcome"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/textInputName"
+
+                style="@style/TextInput"
+
+                android:layout_marginStart="16dp"
+
+                android:layout_marginTop="28dp"
+                android:text="@string/text_nombre"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBienvenida" />
+
+            <EditText
+                android:id="@+id/input_name"
+
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+
+                android:autofillHints="Escribe tu nombre completo"
+                android:background="@drawable/input_radius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputName"
+                tools:ignore="LabelFor,TextFields" />
+
+            <TextView
+                android:id="@+id/textInputEmail"
+
+                style="@style/TextInput"
+
+                android:layout_marginTop="28dp"
+                android:text="@string/text_correo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.061"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_name" />
+
+            <EditText
+                android:id="@+id/input_email"
+
+                style="@style/EditInput"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints="Escribe tu Correo ELectronico"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputEmail"
+                tools:ignore="LabelFor,TextFields" />
+
+            <TextView
+                android:id="@+id/textInputTelefono"
+
+                style="@style/TextInput"
+
+                android:layout_marginTop="28dp"
+                android:text="@string/text_numero_telefonico"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.061"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_email" />
+
+            <EditText
+                android:id="@+id/input_numero_telefonico"
+
+                style="@style/EditInput"
+                android:layout_marginTop="0dp"
+
+                android:autofillHints="Escribe tu Numero Telefonico"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputTelefono"
+                tools:ignore="LabelFor,TextFields" />
+
+            <TextView
+                android:id="@+id/textInputEnteraste"
+
+                style="@style/TextInput"
+
+                android:layout_marginTop="28dp"
+                android:text="@string/text_enteraste"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.046"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_numero_telefonico" />
 
 
+            <Spinner
+                android:id="@+id/input_enteraste"
+                style="@style/EditInput"
+                android:layout_marginTop="4dp"
+                android:entries="@array/como_te_enteraste"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputEnteraste" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/button"
+                android:layout_width="250dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/button_radius"
+                android:text="@string/text_button"
+                android:textColor="@color/background_color"
+                app:layout_constraintBottom_toTopOf="@+id/editText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_enteraste" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="24dp"
+                android:text="collection"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.762" />
 
 
-</androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 
