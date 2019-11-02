@@ -67,7 +67,7 @@ class CollectionViewFragment : Fragment() {
             .addOnSuccessListener {result->
                 for (document in result) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data["accountName"]}")
-                    accountsColl.add(Account("${document.data["accountName"]}", "ore@gmail.com", "22325227", "otro", "https://firebasestorage.googleapis.com/v0/b/bitlab-students-9bb27.appspot.com/o/accounts-image%2F1572498735726_jorge.jpg?alt=media&token=3ff3a8f9-5ce6-403c-8813-f78a87b25440" ))
+                    accountsColl.add(Account("${document.data["accountName"]}", "${document.data["accountEmail"]}", "${document.data["accountPhone"]}", "${document.data["accountFoundOutBy"]}", "https://firebasestorage.googleapis.com/v0/b/bitlab-students-9bb27.appspot.com/o/accounts-image%2F1572498735726_jorge.jpg?alt=media&token=3ff3a8f9-5ce6-403c-8813-f78a87b25440" ))
                     Log.d(TAG, "datos***************: ${accountsColl.size}")
                     Log.d(TAG, "ya pase account")
                     setUpRecyclerView(accountsColl)
