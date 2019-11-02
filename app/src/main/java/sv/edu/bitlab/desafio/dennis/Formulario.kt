@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import sv.edu.bitlab.desafio.R
 
 class Formulario : Fragment(){
@@ -16,6 +18,8 @@ class Formulario : Fragment(){
     // TODO: Rename and change types of parameters
 
     private var listener: OnFragmentInteractionListener? = null
+    private lateinit var collection_enviar: TextView
+    private lateinit var constrain: ConstraintLayout
     private lateinit var button_enviar: Button
     private lateinit var nombre: EditText
     private lateinit var correo: EditText
@@ -42,17 +46,24 @@ class Formulario : Fragment(){
         correo=view.findViewById(R.id.input_email)
         telefono=view.findViewById(R.id.input_numero_telefonico)
         enteraste=view.findViewById(R.id.input_enteraste)
+        constrain = view.findViewById(R.id.constraintFormulario)
 
         button_enviar = view.findViewById(R.id.button)
         button_enviar.setOnClickListener{
-            listener?.checarCampos(nombre, correo, telefono, enteraste)
+            listener?.checarCampos(nombre, correo, telefono, enteraste, constrain)
         }
+        collection_enviar = view.findViewById(R.id.editTextCollection)
+        collection_enviar.setOnClickListener{
+            listener?.mostrarCollection()
+        }
+
         return view
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
     }
 
@@ -84,7 +95,8 @@ class Formulario : Fragment(){
      */
     interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun checarCampos(nombre: EditText, correo: EditText, telefono: EditText, enteraste : Spinner)
+        fun checarCampos(nombre: EditText, correo: EditText, telefono: EditText, enteraste : Spinner, constrain : ConstraintLayout)
+        fun mostrarCollection()
     }
 
     companion object {

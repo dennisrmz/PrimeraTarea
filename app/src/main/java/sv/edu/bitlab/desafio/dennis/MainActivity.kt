@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
-
+import android.os.Handler
 import android.util.Log
 import android.widget.Spinner
 import com.google.firebase.storage.FirebaseStorage
@@ -16,14 +16,19 @@ import com.google.firebase.storage.StorageReference
 
 
 import android.R
-
-
-
-
+import android.view.View
+import android.view.View.GONE
+import android.view.View.INVISIBLE
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 
 
 class MainActivity : AppCompatActivity(), Formulario.OnFragmentInteractionListener,
     CollectionViewFragment.OnFragmentInteractionListener {
+
+
 
 //    private var mStorage: StorageReference? = null
 
@@ -31,19 +36,31 @@ class MainActivity : AppCompatActivity(), Formulario.OnFragmentInteractionListen
     private lateinit var correoC: EditText
     private lateinit var telefonoC: EditText
     private lateinit var enterasteC: Spinner
+    private  lateinit var  constrainC : ConstraintLayout
+
+    val handler = Handler()
     val TAG = "MyMessage"
 
-    override fun checarCampos(nombre: EditText, correo: EditText, telefono : EditText, enteraste : Spinner) {
+
+    override fun mostrarCollection() {
+
+        mostrarFragment2()
+    }
+
+
+
+
+    override fun checarCampos(nombre: EditText, correo: EditText, telefono : EditText, enteraste : Spinner, constrain : ConstraintLayout) {
         nombreC = nombre
         correoC = correo
-        telefonoC =telefono
+        telefonoC = telefono
         enterasteC = enteraste
+        constrainC = constrain
 
         val nomText = nombreC.text.toString()
         val correoText = correoC.text.toString()
         val telefonoText = telefonoC.text.toString()
         val enterasteText = enterasteC.selectedItem.toString()
-
 
 
         if (nomText.isNotEmpty() && correoText.isNotEmpty()) {
@@ -58,8 +75,6 @@ class MainActivity : AppCompatActivity(), Formulario.OnFragmentInteractionListen
                 "accountImage" to "hola.jpg"
             )
 
-
-
 // Add a new document with a generated ID
             db.collection("accounts")
                 .add(accounts as Map<String, Any>)
@@ -69,7 +84,12 @@ class MainActivity : AppCompatActivity(), Formulario.OnFragmentInteractionListen
                 .addOnFailureListener { e ->
                     Log.w(TAG, "Error adding document", e)
                 }
-            mostrarFragment2()
+            constrainC.visibility = GONE
+            handler.postDelayed({
+                mostrarFragment2()
+            },3000)
+
+
         }else Toast.makeText(applicationContext,"Datos no ingresados, por favor ingrese los datos para continuar", Toast.LENGTH_SHORT).show()
 
     }

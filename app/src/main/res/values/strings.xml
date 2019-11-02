@@ -17,6 +17,7 @@
     <string name="label_correo_perfil">Correo electronico</string>
     <string name="numero_label_perfil">Numero Telefonico</string>
     <string name="meenterepor_label_perfil">Me entere por</string>
+    <string name="text_collection">collection</string>
 
     <string-array name="como_te_enteraste">
         <item>Por redes sociales</item>

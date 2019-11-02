@@ -39,16 +39,17 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".dennis.MainActivity"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-247dp">
+        tools:layout_editor_absoluteX="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
+            android:id="@+id/constraintFormulario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/background_color"
-
+            android:visibility="visible"
             tools:context=".dennis.Formulario">
 
             <!-- TODO: Update blank fragment layout -->
@@ -187,26 +188,28 @@
                 android:layout_width="250dp"
                 android:layout_height="42dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/button_radius"
                 android:text="@string/text_button"
                 android:textColor="@color/background_color"
-                app:layout_constraintBottom_toTopOf="@+id/editText"
+                app:layout_constraintBottom_toTopOf="@+id/editTextCollection"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/input_enteraste" />
 
-            <EditText
-                android:id="@+id/editText"
+            <TextView
+                android:id="@+id/editTextCollection"
+                android:textSize="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:layout_marginBottom="24dp"
-                android:text="collection"
+                android:layout_marginBottom="32dp"
+                android:text="@string/text_collection"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="parent"
-                app:layout_constraintVertical_bias="0.762" />
+                app:layout_constraintVertical_bias="0.614" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

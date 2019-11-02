@@ -26,4 +26,9 @@
         <item name="android:layout_marginEnd">16dp</item>
         <item name="android:background">@drawable/input_radius</item>
     </style>
+
+    <style name="TextAccount" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/color_font_welcome</item>
+    </style>
 </resources>
