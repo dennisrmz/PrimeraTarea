@@ -12,6 +12,11 @@
     <string name="text_button">Enviar</string>
     <string name="text_success">Tus datos han sido enviados con exito</string>
     <string name="image_succes">image-succes</string>
+    <string name="imagen_perfil">imagen-perfil</string>
+    <string name="nombre_perfil">John Doe</string>
+    <string name="label_correo_perfil">Correo electronico</string>
+    <string name="numero_label_perfil">Numero Telefonico</string>
+    <string name="meenterepor_label_perfil">Me entere por</string>
 
     <string-array name="como_te_enteraste">
         <item>Por redes sociales</item>

@@ -1,5 +1,7 @@
 package sv.edu.bitlab.desafio.dennis
 
+import sv.edu.bitlab.desafio.dennis.CollectionViewFragment
+import sv.edu.bitlab.desafio.dennis.Formulario
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,10 +11,21 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 import android.util.Log
 import android.widget.Spinner
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+
+
+import android.R
+
+
+
+
 
 
 class MainActivity : AppCompatActivity(), Formulario.OnFragmentInteractionListener,
     CollectionViewFragment.OnFragmentInteractionListener {
+
+//    private var mStorage: StorageReference? = null
 
     private lateinit var nombreC: EditText
     private lateinit var correoC: EditText
@@ -45,6 +58,8 @@ class MainActivity : AppCompatActivity(), Formulario.OnFragmentInteractionListen
                 "accountImage" to "hola.jpg"
             )
 
+
+
 // Add a new document with a generated ID
             db.collection("accounts")
                 .add(accounts as Map<String, Any>)
@@ -67,7 +82,13 @@ class MainActivity : AppCompatActivity(), Formulario.OnFragmentInteractionListen
         super.onCreate(savedInstanceState)
         setContentView(sv.edu.bitlab.desafio.R.layout.activity_main)
 
-
+//        var Uri = Uri.parse("android.resource://" + packageName +"/" + R.drawable.img_logo_bitlab)
+//
+//        mStorage = FirebaseStorage.getInstance().reference
+//
+//        val StorageReference  = mStorage!!.child("accounts-image").child((Uri.lastPathSegment).toString())
+//
+//        StorageReference.putFile(Uri)
 
         mostrarFragment1()
     }

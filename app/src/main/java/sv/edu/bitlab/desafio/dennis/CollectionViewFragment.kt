@@ -1,13 +1,20 @@
 package sv.edu.bitlab.desafio.dennis
 
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import sv.edu.bitlab.desafio.R
+import sv.edu.bitlab.desafio.dennis.Models.Account
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,7 +29,11 @@ import sv.edu.bitlab.desafio.R
  */
 class CollectionViewFragment : Fragment() {
     // TODO: Rename and change types of parameters
+    var nombre : String? = null
+    var fragmentview : View? = null
     private var listener: OnFragmentInteractionListener? = null
+    lateinit var mRecyclerView : RecyclerView
+    val mAdapter : RecyclerAdapter = RecyclerAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +45,58 @@ class CollectionViewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.collection_view_fragment, container, false)
+        // Inflate the layout for this fragmen
+
+        fragmentview  = inflater.inflate(sv.edu.bitlab.desafio.R.layout.collection_view_fragment, container, false)
+
+
+
+        getAccounts()
+
+        return fragmentview
+
+
+
     }
+    fun getAccounts(){
+
+        var accountsColl:MutableList<Account> = mutableListOf()
+        val db = FirebaseFirestore.getInstance()
+        db.collection("accounts")
+            .get()
+            .addOnSuccessListener {result->
+                for (document in result) {
+                    Log.d(TAG, "DocumentSnapshot data: ${document.data["accountName"]}")
+                    accountsColl.add(Account("${document.data["accountName"]}", "ore@gmail.com", "22325227", "otro", "https://firebasestorage.googleapis.com/v0/b/bitlab-students-9bb27.appspot.com/o/accounts-image%2F1572498735726_jorge.jpg?alt=media&token=3ff3a8f9-5ce6-403c-8813-f78a87b25440" ))
+                    Log.d(TAG, "datos***************: ${accountsColl.size}")
+                    Log.d(TAG, "ya pase account")
+                    setUpRecyclerView(accountsColl)
+                }
+
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting documents: ", exception)
+            }
+        Log.d(TAG, "***pase aqui despues datos***************: ${accountsColl.size}")
+        }
+
+    fun setUpRecyclerView(account: MutableList<Account>){
+        val activity = activity as Context
+        mRecyclerView = this.fragmentview!!.findViewById(sv.edu.bitlab.desafio.R.id.collectionListView) as RecyclerView
+        mRecyclerView.setHasFixedSize(true)
+        mRecyclerView.layoutManager = LinearLayoutManager(activity)
+        mAdapter.RecyclerAdapter(account, activity)
+        mRecyclerView.adapter = mAdapter
+        mAdapter.notifyDataSetChanged()
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
     }
+
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
